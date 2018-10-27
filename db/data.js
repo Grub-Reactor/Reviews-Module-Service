@@ -28,4 +28,37 @@ const restaurants = [
 'Pink Onion'
 ];
 
-module.exports.restaurants = restaurants;
+const menu = [
+  'Wafles Fries',
+  'Cheese Burger',
+  'Bacon Cheese',
+  'Peperonie Pizza',
+  'Chicken Sandwich',
+  'French Fries',
+  'Ice Cream',
+  'Coffe',
+  'Orange Juice',
+  'Nuggets',
+  'Pretzel',
+  'Kitava',
+  'Beef Taco',
+  'Ceasar Salad',
+  'Cajun Fries',
+  'Chicken Biscuit',
+  'Soft Pork Taco',
+  'Chilli',
+  'Sushi',
+  'Carbonara Pasta',
+  'Nodles',
+  'Ramen',
+  'Chicken Wings',
+  'Spicy Chicken Sandwich',
+  'Boba tea',
+  'Green Tea',
+  'Onion Soup'
+  ];
+
+module.exports = {
+  restaurants: restaurants,
+  menu: menu
+};

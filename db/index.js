@@ -16,7 +16,18 @@ const getAllReviews = (callback) => {
 			callback(null, results)
 		}
   }); 
-}
+};
+
+const getAllUsers = (callback) => {
+  connection.query('Select * from users', function (error, results) {
+		if (error) {
+			callback(error, null);
+		} else {
+			callback(null, results)
+		}
+  }); 
+};
+
 const insertUser = (username, reviewsCount, callback) => {
   const query = `INSERT into users (username, reviewsCount) VALUES (?, ?)`
 	connection.query(query, [username, reviewsCount], function (error, results) {
@@ -26,30 +37,29 @@ const insertUser = (username, reviewsCount, callback) => {
 			callback(null, results)
 		}
 	});
-}
+};
 
-const insertRestaurant = (name, callback) => {
-  const query = `INSERT into restaurants (name) VALUES (?)`
-	connection.query(query, [name], function (error, results) {
+const insertRestaurant = (restaurantName, callback) => {
+  const query = `INSERT into restaurants (restaurantName) VALUES (?)`
+	connection.query(query, [restaurantName], function (error, results) {
 		if (error) {
 			callback(error, null);
 		} else {
 			callback(null, results)
 		}
 	});  
-}
+};
 
-const insertItem = (name, callback) => {
-  const query = `INSERT into items (name) VALUES (?)`
-	connection.query(query, [name], function (error, results) {
+const insertItem = (itemName, iDescription, price, callback) => {
+  const query = `INSERT into items (itemName, iDescription, price) VALUES (?, ?, ?)`
+	connection.query(query, [itemName, iDescription, price], function (error, results) {
 		if (error) {
 			callback(error, null);
 		} else {
 			callback(null, results)
 		}
 	});  
-  
-}
+};
 
 const insertReview = (createdAt, userRating, wasFoodGood, wasFoodDeliveredOnTime, wasOrderAccurate, reviewMsg, userId, restaurantId, callback) => {
   var query = `INSERT into reviews (createdAt, userRating, wasFoodGood, wasFoodDeliveredOnTime, wasOrderAccurate, reviewMsg, userId, restaurantId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
@@ -75,7 +85,8 @@ const insertItemsOrdered = (reviewId, itemId, callback) => {
 
 
 module.exports = { 
-  getAllReviews: getAllReviews,
+	getAllReviews: getAllReviews,
+	getAllUsers: getAllUsers,
   insertUser: insertUser,
 	insertRestaurant: insertRestaurant,
 	insertItem: insertItem,

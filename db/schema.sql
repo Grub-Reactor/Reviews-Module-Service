@@ -20,6 +20,8 @@ CREATE TABLE restaurants (
 CREATE TABLE items (
   id int not null auto_increment,
   itemName varchar(50) UNIQUE,
+  iDescription varchar(250),
+  price int,
   primary key (id)
 );
 
