@@ -5,10 +5,10 @@ CREATE DATABASE grubhub_reviews;
 USE grubhub_reviews;
 
 CREATE TABLE users (
-  id int not null auto_increment,
+  userId int not null auto_increment,
   username varchar(50) UNIQUE,
   reviewsCount int,
-  primary key (id)
+  primary key (userId)
 );
 
 CREATE TABLE restaurants (
@@ -32,10 +32,10 @@ CREATE TABLE reviews (
   wasFoodGood boolean,
   wasDeliveredOnTime boolean,
   wasOrderAccurate boolean,
-  reviewMsg varchar(50),
+  reviewMsg varchar(300),
   userId int,
   restaurantId int,
-  foreign key (userId) references users(id),
+  foreign key (userId) references users(userId),
   foreign key (restaurantId) references restaurants(id),
   primary key (id)
 );
@@ -44,8 +44,6 @@ CREATE TABLE itemsOrdered (
   id int not null auto_increment,
   reviewId int,
   itemId int,
-  foreign key (reviewId) references reviews(id),
-  foreign key (itemId) references items(id),
   primary key (id)
 );
 
