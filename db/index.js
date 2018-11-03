@@ -21,7 +21,10 @@ const getAllReviews = (callback) => {
 // TODO: getReviewsByResturantId
 const getReviewsByRestaurantId = (restaurantId, callback) => {
   const query = `select * from reviews  
-    inner join users on reviews.userId = users.userId
+    inner join users 
+    on reviews.userId = users.userId
+    inner join restaurants 
+    on reviews.restaurantId = restaurants.restId
     where reviews.restaurantId = ${restaurantId}`; // TODO: investigate about SQL Injection (later)
 
   connection.query(query, (error, reviews) => {

@@ -35,16 +35,21 @@ class ReviewList extends React.Component {
     return ratings;
   };
 
+  
+
   render() {
+    this.ratings = this.calculatePercentageAndRatings();
+    // {this.props.reviews !== undefined || this.props.reviews.length > 0}
     return (
+      
       <ol>
-        <div className='summary'>
+        <div className="summary">
           <Summary 
             reviews={this.props.reviews} 
-            percentageFoodGood={this.calculatePercentageAndRatings().percentageFoodGood} 
-            percentageFoodOnTime={this.calculatePercentageAndRatings().percentageFoodOnTime} 
-            percentageOrderAccurate={this.calculatePercentageAndRatings().percentageOrderAccurate} 
-            ratingavg={this.calculatePercentageAndRatings().ratingavg}
+            percentageFoodGood={this.ratings.percentageFoodGood} 
+            percentageFoodOnTime={this.ratings.percentageFoodOnTime} 
+            percentageOrderAccurate={this.ratings.percentageOrderAccurate} 
+            ratingavg={this.ratings.ratingavg}
           />
         </div>
         {this.props.reviews.map((review, index) => {

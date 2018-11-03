@@ -12,9 +12,9 @@ CREATE TABLE users (
 );
 
 CREATE TABLE restaurants (
-  id int not null auto_increment,
+  restId int not null auto_increment,
   restaurantName varchar(50) UNIQUE,
-  primary key (id)
+  primary key (restId)
 );
 
 CREATE TABLE items (
@@ -36,7 +36,7 @@ CREATE TABLE reviews (
   userId int,
   restaurantId int,
   foreign key (userId) references users(userId),
-  foreign key (restaurantId) references restaurants(id),
+  foreign key (restaurantId) references restaurants(restId),
   primary key (id)
 );
 
