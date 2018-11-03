@@ -38,10 +38,14 @@ class ReviewList extends React.Component {
   
 
   render() {
+
+    if (this.props.reviews === undefined || this.props.reviews === null) {
+      return (<div>There aren't reviews</div>);
+    }
+
     this.ratings = this.calculatePercentageAndRatings();
-    // {this.props.reviews !== undefined || this.props.reviews.length > 0}
+    
     return (
-      
       <ol>
         <div className="summary">
           <Summary 
@@ -57,7 +61,7 @@ class ReviewList extends React.Component {
         })}
       </ol>
     );
-  }s
+  }
 }
 
 export default ReviewList;
