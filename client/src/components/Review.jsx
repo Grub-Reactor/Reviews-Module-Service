@@ -26,7 +26,7 @@ class Review extends React.Component {
                 <h6 className='username'>{this.props.review.username}</h6>
                 <div className='date1'>
                   <div className='date2'>
-                    <span className='metal-label'>
+                    <span className='date-label'>
                       {moment(this.props.review.createdAt, 'YYYY-MM-DD Th:mm:ss').startOf('hour').fromNow()}
                     </span>
                   </div>
@@ -60,6 +60,20 @@ class Review extends React.Component {
                     <div className='item-subcontainer'>
                       <div className='item-name'>{item.itemName} <i className="fas fa-plus"></i></div>                      
                     </div>
+                    <div className="push popover__content">
+                      <div className="item-info-container">
+                        <div className="item-name-price">
+                          <span className='item-name'>
+                            {item.itemName} 
+                          </span>
+                          <span className="item-price">
+                            ${item.price}
+                          </span>
+                        </div>
+                        <div className="item-description">{item.iDescription}</div>
+                      </div>
+                      <div className="add-to-bag">Add to bag</div>
+                    </div>
                   </div>
                 );
               })}
@@ -71,5 +85,6 @@ class Review extends React.Component {
     );
   }
 }
+
 
 export default Review;
