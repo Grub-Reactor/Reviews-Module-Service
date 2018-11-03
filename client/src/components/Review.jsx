@@ -11,7 +11,6 @@ class Review extends React.Component {
   }
   
   render() {
-    {console.log(this.props.review)}
     return (
       <li>
         <div className='review'>

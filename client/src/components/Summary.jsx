@@ -12,7 +12,7 @@ class Summary extends React.Component {
   render() {
     return (
       <div >
-        <h3>Restaurant</h3>
+        <h3>{this.props.reviews[0].restaurantName}</h3>
         <div className='summary-stars'>
           <i className={this.props.ratingavg > 0 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
           <i className={this.props.ratingavg > 1 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>

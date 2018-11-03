@@ -7,6 +7,7 @@ import ReviewList from './components/ReviewList.jsx';
   fetch(url)
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       ReactDOM.render( <ReviewList reviews={data}/>, 
         document.getElementById("app")
       );
