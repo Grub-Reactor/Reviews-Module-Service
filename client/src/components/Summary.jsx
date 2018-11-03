@@ -11,7 +11,7 @@ class Summary extends React.Component {
   
   render() {
     return (
-      <div>
+      <div >
         <h3>Restaurant</h3>
         <div className='summary-stars'>
           <i className={this.props.ratingavg > 0 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
@@ -22,18 +22,20 @@ class Summary extends React.Component {
           <div className='rating-text-sum'><span>{this.props.reviews.length}</span> <span>Raitings</span></div>
         </div>
         <p className='p-summary'>Here's what people are saying: </p>
-        <li className='was-food-good'> 
-          <span>{this.props.percentageFoodGood}<span>% </span></span>
-          <span className='second-span'>Food was good</span>
-        </li>
-        <li className='delivery-ontime'> 
-          <span>{this.props.percentageFoodOnTime}<span>% </span></span>
-          <span className='second-span'>Delivery was on time</span>
-        </li>
-        <li className='accurate-order'> 
-          <span>{this.props.percentageOrderAccurate}<span>% </span></span>
-          <span className='second-span'>Order was accurate</span>
-        </li>
+        <div className='summary-container'>
+          <div className='was-food-good summary-p'> 
+            <div className='bold'>{this.props.percentageFoodGood}<span>% </span></div>
+            <div className='second-span'>Food was good</div>
+          </div>
+          <div className='delivery-ontime summary-p'> 
+            <div className='bold'>{this.props.percentageFoodOnTime}<span>% </span></div>
+            <div className='second-span'>Delivery was on time</div>
+          </div>
+          <div className='accurate-order summary-p'> 
+            <div className='bold'>{this.props.percentageOrderAccurate}<span>% </span></div>
+            <div className='second-span'>Order was accurate</div>
+          </div>
+        </div>
       </div>
     );
   }
