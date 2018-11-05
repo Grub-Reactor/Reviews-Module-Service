@@ -1,6 +1,7 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom';
 import ReviewList from './components/ReviewList.jsx';
+import css from '../main.css';
 
 
   const url = `${window.location}reviews`;
