@@ -4,8 +4,8 @@ import ReviewList from './components/ReviewList.jsx';
 import css from '../main.css';
 
 
-const restaurantId = window.location.pathname.split('/')[2];
-const url = `/restaurants/${restaurantId}/allreviews/reviews/`;
+const restaurantId = window.location.pathname.split('/')[1];
+const url = `/${restaurantId}/allreviews/reviews/`;
 console.log(url);
 fetch(url)
   .then(response => response.json())
