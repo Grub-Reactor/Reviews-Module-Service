@@ -4,13 +4,15 @@ import ReviewList from './components/ReviewList.jsx';
 import css from '../main.css';
 
 
-  const url = `${window.location}reviews`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      ReactDOM.render( <ReviewList reviews={data}/>, 
-        document.getElementById("app")
-      );
-    });
+const restaurantId = window.location.pathname.split('/')[2];
+const url = `/restaurants/${restaurantId}/allreviews/reviews/`;
+console.log(url);
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    ReactDOM.render( <ReviewList reviews={data}/>, 
+        document.getElementById("reviews")
+    );
+  });
 

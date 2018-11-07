@@ -10,9 +10,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/restaurants/:restaurantID/', express.static(path.join(__dirname, '../client/dist/')));
+app.use('/restaurants/:restaurantID/allreviews', express.static(path.join(__dirname, '../client/dist/')));
 
-app.get('/restaurants/:restaurantID/reviews', (req, res) => {
+app.get('/restaurants/:restaurantID/allreviews/reviews/', (req, res) => {
   const restaurantId = req.params.restaurantID;
   db.getReviewsByRestaurantId(restaurantId, (error, data) => {
     if (error) {
