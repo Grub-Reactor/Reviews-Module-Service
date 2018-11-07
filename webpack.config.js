@@ -1,3 +1,6 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
 module.exports = {
   entry: __dirname + '/client/src/index.jsx',
   module: {
@@ -24,4 +27,9 @@ module.exports = {
     filename: 'bundle.js',
     path: __dirname + '/client/dist'
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'client/src/index.html' }
+    ], {}),
+  ]
 };
